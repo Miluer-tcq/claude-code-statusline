@@ -17,17 +17,6 @@
    ```
 4. Restart Claude Code if the current session does not detect the new skill.
 
-### Install with npx
-If you want a one-command install similar to `skills add`, use the npm package after publishing:
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-During local development, the equivalent validation command is:
-```bash
-npx --yes --package . skills add cc-statusline
-```
-
 ### Ask AI to install from the GitHub link
 You can also paste this prompt to an AI agent that can manage Claude Code files:
 
@@ -91,17 +80,6 @@ bash ~/.claude/skills/cc-statusline/scripts/uninstall_statusline.sh
    cp -r claude-code-statusline/cc-statusline ~/.claude/skills/cc-statusline
    ```
 4. 如果当前会话没有识别到新 skill，重开 Claude Code 会话即可。
-
-### 使用 npx 安装
-如果你想要接近 `skills add` 的一条命令安装体验，推荐在发布到 npm 后使用：
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-当前本地开发环境对应的验证命令是：
-```bash
-npx --yes --package . skills add cc-statusline
-```
 
 ### 把 GitHub 链接发给 AI 让它安装
 你也可以把下面这段提示词直接发给支持 Claude Code 文件操作的 AI：

@@ -9,8 +9,6 @@ claude-code-statusline/
 │       ├── theme-and-icons.svg
 │       ├── installed-statusline-examples.svg
 │       └── cross-platform-install.svg
-├── bin/
-│   └── skills.js
 ├── cc-statusline/
 │   ├── SKILL.md
 │   ├── presets/
@@ -38,7 +36,6 @@ claude-code-statusline/
 │   └── trigger-validation.template.json
 ├── themes/
 ├── LICENSE
-├── package.json
 ├── README.md
 ├── README.en.md
 └── README.zh-CN.md

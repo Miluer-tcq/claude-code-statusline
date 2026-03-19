@@ -4,6 +4,10 @@
 >
 > 中文说明： [README.md](README.md)
 
+## Project Description / 项目描述
+- English: `cc-statusline` is a Claude Code statusline skill for installing, switching, previewing, fine-tuning, and restoring statuslines with bilingual triggering, preset installs, custom layouts, theme / icon switching, and Windows / macOS / Linux support.
+- 中文：`cc-statusline` 是一个面向 Claude Code 的状态栏 skill，用来安装、切换、预览、微调和恢复状态栏，支持双语触发、预设安装、自定义布局、主题 / 图标切换，以及 Windows / macOS / Linux 三平台。
+
 A bilingual Claude Code statusline skill for preset installation, preview-first activation, interactive customization, theme/icon switching, and cross-platform support on Windows, macOS, and Linux.
 
 ## Install this skill
@@ -30,28 +34,7 @@ Notes:
 - This installs a **skill directory**, not a plugin
 - After installation, Claude Code can trigger it with natural language
 
-### Option 2: Install with one npx command
-If you want an experience close to `npx skills add`, use the local package during development or the npm package after publishing:
-
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-The bundled `bin/skills.js` installer and local `npx --package . skills add cc-statusline` flow are already validated.
-If you prefer a GitHub-based install today, use the AI-link flow above or the manual copy flow below.
-
-If the package is published to npm, the same `skills add` style stays the same:
-
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-Notes:
-- This installs the skill into `~/.claude/skills/cc-statusline`
-- It only installs the skill and does not immediately change your statusline
-- After installation, ask Claude Code to run a preset install or generate a custom statusline
-
-### Option 3: Install manually from the GitHub repository
+### Option 2: Install manually from the GitHub repository
 If you want full manual control, copy the skill directory directly:
 
 ```bash
@@ -84,7 +67,6 @@ If your current session does not notice the new skill yet, restart the Claude Co
 
 ## What the repository includes
 - a self-contained `cc-statusline` skill directory
-- an npx installer (`bin/skills.js` + `package.json`)
 - runtime statusline script
 - cross-platform install scripts
 - preset / theme / icon metadata
@@ -174,10 +156,9 @@ bash ~/.claude/skills/cc-statusline/scripts/uninstall_statusline.sh
 This removes only the `statusLine` field from `~/.claude/settings.json`.
 Generated script files stay on disk unless the user explicitly wants them removed.
 
-### 4. npx installer / .skill packaging
+### 4. `.skill` packaging
 This repository now supports skill-first distribution:
 - copy `cc-statusline/` directly into `~/.claude/skills/cc-statusline`
-- install with `npx ... skills add cc-statusline`
 - optionally package `cc-statusline/` into a `.skill` file later
 
 ## Presets

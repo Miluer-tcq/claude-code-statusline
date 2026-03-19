@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
   <title>Cross-platform install examples / 三平台安装示例</title>
-  <desc>Windows, macOS, Linux, npx install, and AI link install flows.</desc>
+  <desc>Windows, macOS, Linux, manual install, and AI link install flows.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0b1020" />
@@ -25,7 +25,7 @@
   <rect class="bg" x="0" y="0" width="1600" height="900" rx="0"/>
   <rect x="48" y="38" width="1504" height="824" rx="28" fill="rgba(15,23,42,0.65)" stroke="#334155" stroke-width="1.2"/>
   <text class="title" x="90" y="102">Cross-platform install examples / 三平台安装示例</text>
-  <text class="subtitle" x="90" y="136">Windows, macOS, Linux, npx install, and AI link install flows.</text>
+  <text class="subtitle" x="90" y="136">Windows, macOS, Linux, manual install, and AI link install flows.</text>
   <rect class="panel" x="90" y="184" width="450" height="286" rx="24"/>
   <rect x="90" y="184" width="450" height="10" rx="24" fill="#60a5fa"/>
   <text class="section" x="116" y="232">Windows</text>
@@ -55,11 +55,11 @@
   <circle cx="114" cy="546" r="6" fill="#fb7185"/>
   <circle cx="136" cy="546" r="6" fill="#fbbf24"/>
   <circle cx="158" cy="546" r="6" fill="#34d399"/>
-  <text class="small" x="186" y="551">npx install + AI link install / npx 安装 + AI 链接安装</text>
+  <text class="small" x="186" y="551">Manual install + AI link install / 手动安装 + AI 链接安装</text>
   <rect x="90" y="568" width="1420" height="6" fill="#f59e0b"/>
-  <text class="mono-small" x="114" y="612">npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline</text>
-  <text class="mono-small" x="114" y="643">Install target: ~/.claude/skills/cc-statusline</text>
+  <text class="mono-small" x="114" y="612">git clone https://github.com/Miluer-tcq/claude-code-statusline</text>
+  <text class="mono-small" x="114" y="643">cp -r claude-code-statusline/cc-statusline ~/.claude/skills/cc-statusline</text>
   <text class="mono-small" x="114" y="674">Paste this URL to AI and ask it to install the skill automatically:</text>
   <text class="mono-small" x="114" y="705">https://github.com/Miluer-tcq/claude-code-statusline</text>
-  <text class="accent-text" x="90" y="780">The release flow now supports self-contained skill install, npx install, and AI link install / 现已支持自包含 skill 安装、npx 安装与 AI 链接安装。</text>
+  <text class="accent-text" x="90" y="780">The release flow now supports self-contained skill install, manual install, and AI link install / 现已支持自包含 skill 安装、手动安装与 AI 链接安装。</text>
 </svg>

@@ -4,6 +4,10 @@
 >
 > English README: [README.en.md](README.en.md)
 
+## 项目描述 / Project Description
+- 中文：`cc-statusline` 是一个面向 Claude Code 的状态栏 skill，用来安装、切换、预览、微调和恢复状态栏，支持双语触发、预设安装、自定义布局、主题 / 图标切换，以及 Windows / macOS / Linux 三平台。
+- English: `cc-statusline` is a Claude Code statusline skill for installing, switching, previewing, fine-tuning, and restoring statuslines with bilingual triggering, preset installs, custom layouts, theme / icon switching, and Windows / macOS / Linux support.
+
 一个支持中英文触发的 Claude Code 状态栏 skill，提供预设安装、先预览后启用、交互式自定义、主题/图标切换，以及 Windows、macOS、Linux 三平台支持。
 
 ## 安装这个 skill
@@ -30,28 +34,7 @@ https://github.com/Miluer-tcq/claude-code-statusline
 - 安装的是 **skill 目录**，不是 plugin
 - 安装完成后，Claude Code 就能按自然语言触发这个 skill
 
-### 方式 2：使用 npx 一条命令安装
-如果你想要接近 `npx skills add` 的安装体验，可以直接运行本地包或后续的 npm 包：
-
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-当前仓库里的 `bin/skills.js` 与本地 `npx --package . skills add cc-statusline` 已验证可用。
-如果你更适合直接从 GitHub 安装，优先使用上面的“把 GitHub 链接发给 AI”或下面的手动复制方式。
-
-如果后续发布到 npm，也可以继续保持同样的 `skills add` 形式：
-
-```bash
-npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
-```
-
-说明：
-- 这个命令会把 skill 安装到 `~/.claude/skills/cc-statusline`
-- 它只安装 skill，不会立即改动你的状态栏
-- 安装完成后，再通过自然语言让 Claude Code 帮你执行预设安装或自定义生成
-
-### 方式 3：通过 GitHub 仓库手动安装
+### 方式 2：通过 GitHub 仓库手动安装
 如果你想手动控制安装过程，可以直接复制 skill 目录：
 
 ```bash
@@ -84,7 +67,6 @@ cp -r claude-code-statusline/cc-statusline ~/.claude/skills/cc-statusline
 
 ## 仓库内容
 - 自包含的 `cc-statusline` skill 目录
-- npx 安装器（`bin/skills.js` + `package.json`）
 - 运行时状态栏脚本
 - 三平台安装脚本
 - 预设 / 主题 / 图标元数据
@@ -174,10 +156,9 @@ bash ~/.claude/skills/cc-statusline/scripts/uninstall_statusline.sh
 该脚本只会移除 `~/.claude/settings.json` 中的 `statusLine` 字段。
 除非用户明确要求，否则不会删除已生成的脚本文件。
 
-### 4. npx 安装器 / skill 打包
+### 4. `.skill` 打包
 当前仓库已经支持以 skill 为核心的分发方式：
 - 直接复制 `cc-statusline/` 到 `~/.claude/skills/cc-statusline`
-- 使用 `npx ... skills add cc-statusline` 方式安装
 - 需要时还可以从 `cc-statusline/` 目录进一步打包为 `.skill`
 
 ## 预设
