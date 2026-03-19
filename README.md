@@ -70,7 +70,8 @@ cp -r cc-statusline/SKILL.md cc-statusline/scripts cc-statusline/presets cc-stat
 - 根目录就是可安装的 `cc-statusline` skill 根目录
 - `SKILL.md` 是 skill 入口
 - `scripts/`、`presets/`、`themes/`、`icons/`、`references/` 是运行时资源
-- `assets/screenshots/` 和 `dist/` 是 GitHub 展示 / 发布资源，不影响 skill 运行
+- `assets/screenshots/` 是 GitHub 展示资源，不影响 skill 运行
+- `.skill` 打包文件可按需生成并作为 release 附件分发，不需要常驻仓库
 
 ## 手动调用 skill 内脚本
 如果你已经安装了 skill，也可以直接调用 skill 目录里的脚本。
@@ -141,7 +142,8 @@ bash ~/.claude/skills/cc-statusline/scripts/uninstall_statusline.sh
 ### 4. `.skill` 打包
 当前仓库已经支持以 skill 为核心的分发方式：
 - 把仓库根目录中的 skill 文件复制到 `~/.claude/skills/cc-statusline`
-- 需要时可以从当前仓库根目录进一步打包为 `.skill`
+- 需要发 release 时，再从当前仓库根目录临时打包为 `.skill`
+- `.skill` 成品不需要常驻仓库，可作为 release 附件单独分发
 
 ## 预设
 - `Full / 完整版` — 最接近当前 Miluer 风格的完整布局

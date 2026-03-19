@@ -70,7 +70,8 @@ The repository has been flattened:
 - the repository root is now the installable `cc-statusline` skill root
 - `SKILL.md` is the skill entry point
 - `scripts/`, `presets/`, `themes/`, `icons/`, and `references/` are runtime assets
-- `assets/screenshots/` and `dist/` are GitHub presentation / release assets and are not required for runtime
+- `assets/screenshots/` are GitHub presentation assets and are not required for runtime
+- the `.skill` package can be generated on demand and distributed as a release asset instead of staying in the repository
 
 ## Manual use of bundled skill scripts
 If the skill is already installed, you can also call its scripts directly.
@@ -141,7 +142,8 @@ Generated script files stay on disk unless the user explicitly wants them remove
 ### 4. `.skill` packaging
 This repository now supports skill-first distribution:
 - copy the root skill files into `~/.claude/skills/cc-statusline`
-- optionally package the repository root into a `.skill` file later
+- generate a `.skill` package from the repository root only when preparing a release
+- the packaged `.skill` file does not need to stay checked into the repository
 
 ## Presets
 - `Full / 完整版` — closest to the current full Miluer-style layout
