@@ -1,0 +1,37 @@
+{
+  "name": "@miluer-tcq/cc-statusline",
+  "version": "0.1.0",
+  "description": "Distributable Claude Code skill and npx installer for the bilingual cc-statusline statusline assistant.",
+  "license": "MIT",
+  "author": "Miluer-tcq",
+  "homepage": "https://github.com/Miluer-tcq/claude-code-statusline",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miluer-tcq/claude-code-statusline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Miluer-tcq/claude-code-statusline/issues"
+  },
+  "bin": {
+    "skills": "bin/skills.js",
+    "cc-statusline-install": "bin/skills.js"
+  },
+  "files": [
+    "bin",
+    "cc-statusline",
+    "README.md",
+    "README.en.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "claude-code",
+    "skill",
+    "statusline",
+    "bilingual",
+    "npx"
+  ]
+}

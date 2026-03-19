@@ -4,27 +4,71 @@
 >
 > 中文说明： [README.md](README.md)
 
-A bilingual Claude Code statusline skill for preset installation, preview-first activation, interactive customization, theme/icon switching, and cross-platform setup on Windows, macOS, and Linux.
+A bilingual Claude Code statusline skill for preset installation, preview-first activation, interactive customization, theme/icon switching, and cross-platform support on Windows, macOS, and Linux.
 
-## One-click skill install
-Add this repository as a Claude Code marketplace source, then install the plugin:
+## Install this skill
 
-```bash
-claude plugin marketplace add https://github.com/Miluer-tcq/claude-code-statusline --scope user
-claude plugin install cc-statusline@miluer-statusline --scope user
+### Option 1: Paste the GitHub link to AI and ask it to install the skill (best for normal users)
+Send this repository URL to an AI agent that can operate inside Claude Code and ask it to install the skill:
+
+```text
+https://github.com/Miluer-tcq/claude-code-statusline
+```
+
+Copy-ready prompt:
+
+```text
+Please install this Claude Code skill for me:
+https://github.com/Miluer-tcq/claude-code-statusline
+
+Install target: ~/.claude/skills/cc-statusline
+After installation, tell me how to trigger it.
 ```
 
 Notes:
-- `--scope user` installs it at user scope; you can switch to `project` or `local` if needed
-- After installation, you can trigger the skill directly in Claude Code with natural language
+- The install target is `~/.claude/skills/cc-statusline`
+- This installs a **skill directory**, not a plugin
+- After installation, Claude Code can trigger it with natural language
 
-## One-click usage after install
+### Option 2: Install with one npx command
+If you want an experience close to `npx skills add`, use the local package during development or the npm package after publishing:
+
+```bash
+npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
+```
+
+The bundled `bin/skills.js` installer and local `npx --package . skills add cc-statusline` flow are already validated.
+If you prefer a GitHub-based install today, use the AI-link flow above or the manual copy flow below.
+
+If the package is published to npm, the same `skills add` style stays the same:
+
+```bash
+npx -y -p @miluer-tcq/cc-statusline skills add cc-statusline
+```
+
+Notes:
+- This installs the skill into `~/.claude/skills/cc-statusline`
+- It only installs the skill and does not immediately change your statusline
+- After installation, ask Claude Code to run a preset install or generate a custom statusline
+
+### Option 3: Install manually from the GitHub repository
+If you want full manual control, copy the skill directory directly:
+
+```bash
+git clone https://github.com/Miluer-tcq/claude-code-statusline
+mkdir -p ~/.claude/skills
+cp -r claude-code-statusline/cc-statusline ~/.claude/skills/cc-statusline
+```
+
+## How to use it after installation
 After installing, you can say things like:
 
 - `Install the Full / 完整版 statusline for me`
 - `Switch me to the Developer / 开发者版 statusline`
 - `Generate a 2-line custom statusline with the ocean theme and developer icons`
 - `Uninstall the statusline and restore the default one`
+
+If your current session does not notice the new skill yet, restart the Claude Code session.
 
 ## Features
 - bilingual trigger coverage for Chinese and English requests
@@ -39,27 +83,37 @@ After installing, you can say things like:
 - uninstall removes only `statusLine` and keeps generated scripts on disk
 
 ## What the repository includes
-- `cc-statusline` skill
+- a self-contained `cc-statusline` skill directory
+- an npx installer (`bin/skills.js` + `package.json`)
 - runtime statusline script
-- platform-specific install scripts
+- cross-platform install scripts
 - preset / theme / icon metadata
 - custom generation and activation wrappers
-- marketplace metadata for a single-plugin repository
 - bilingual release docs
 
-## Repository script flow
-If you want to run the repo scripts directly, you can use the following flow.
+## Installed skill layout
+The final installed skill directory is:
 
-### 1. Preset install via scripts
-Recommended entry points:
-- unified preset wrapper: `scripts/activate_preset_statusline.sh`
-- Windows installer: `scripts/install_statusline_windows.sh`
-- macOS installer: `scripts/install_statusline_macos.sh`
-- Linux installer: `scripts/install_statusline_linux.sh`
+```text
+~/.claude/skills/cc-statusline/
+```
 
-Recommended command:
+That directory is self-contained and includes:
+- `SKILL.md`
+- `scripts/`
+- `presets/`
+- `themes/`
+- `icons/`
+- `references/`
+
+So Claude Code can trigger it naturally, and you can also call the bundled scripts directly.
+
+## Manual use of bundled skill scripts
+If the skill is already installed, you can also call its scripts directly.
+
+### 1. Activate a preset statusline
 ```bash
-bash scripts/activate_preset_statusline.sh full aurora classic
+bash ~/.claude/skills/cc-statusline/scripts/activate_preset_statusline.sh full aurora classic
 ```
 
 What the preset install flow does:
@@ -72,8 +126,9 @@ What the preset install flow does:
 
 ### 2. Generate a custom statusline
 Generate a three-line custom layout:
+
 ```bash
-bash cc-statusline/scripts/generate_custom_statusline.sh \
+bash ~/.claude/skills/cc-statusline/scripts/generate_custom_statusline.sh \
   "$HOME/.claude/statusline.custom.sh" \
   "model,modes,active" \
   "cwd,git,context" \
@@ -83,8 +138,9 @@ bash cc-statusline/scripts/generate_custom_statusline.sh \
 ```
 
 Generate a one-line custom layout:
+
 ```bash
-bash cc-statusline/scripts/generate_custom_statusline.sh \
+bash ~/.claude/skills/cc-statusline/scripts/generate_custom_statusline.sh \
   "$HOME/.claude/statusline.custom.sh" \
   "model,active,cost" \
   "-" \
@@ -99,31 +155,30 @@ Notes:
 - the generator prints a compact summary of the final layout
 
 Activate the generated custom script:
+
 ```bash
-bash scripts/activate_custom_statusline.sh "$HOME/.claude/statusline.custom.sh" ocean developer
+bash ~/.claude/skills/cc-statusline/scripts/activate_custom_statusline.sh "$HOME/.claude/statusline.custom.sh" ocean developer
 ```
 
 Switch back to a preset later:
+
 ```bash
-bash scripts/activate_preset_statusline.sh full aurora classic
+bash ~/.claude/skills/cc-statusline/scripts/activate_preset_statusline.sh full aurora classic
 ```
 
 ### 3. Uninstall / restore default behavior
 ```bash
-bash scripts/uninstall_statusline.sh
+bash ~/.claude/skills/cc-statusline/scripts/uninstall_statusline.sh
 ```
 
 This removes only the `statusLine` field from `~/.claude/settings.json`.
 Generated script files stay on disk unless the user explicitly wants them removed.
 
-### 4. Marketplace metadata
-This repository already includes `.claude-plugin/marketplace.json` for a single-plugin marketplace release.
-
-Current metadata:
-- plugin name: `cc-statusline`
-- marketplace name: `miluer-statusline`
-- branch: `main`
-- version: `0.1.0`
+### 4. npx installer / .skill packaging
+This repository now supports skill-first distribution:
+- copy `cc-statusline/` directly into `~/.claude/skills/cc-statusline`
+- install with `npx ... skills add cc-statusline`
+- optionally package `cc-statusline/` into a `.skill` file later
 
 ## Presets
 - `Full / 完整版` — closest to the current full Miluer-style layout

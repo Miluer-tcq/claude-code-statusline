@@ -27,9 +27,9 @@ Treat this folder as the skill base directory.
 Use these relative paths from the skill directory:
 从 skill 目录出发，使用这些相对路径：
 - `scripts/generate_custom_statusline.sh` → generate a custom runtime script / 生成自定义状态栏脚本
-- `../scripts/activate_preset_statusline.sh` → install or switch a preset / 安装或切换预设
-- `../scripts/activate_custom_statusline.sh` → activate a generated custom script / 启用生成好的自定义脚本
-- `../scripts/uninstall_statusline.sh` → remove only the `statusLine` config / 只移除 `statusLine` 配置
+- `scripts/activate_preset_statusline.sh` → install or switch a preset / 安装或切换预设
+- `scripts/activate_custom_statusline.sh` → activate a generated custom script / 启用生成好的自定义脚本
+- `scripts/uninstall_statusline.sh` → remove only the `statusLine` config / 只移除 `statusLine` 配置
 
 Default paths:
 默认路径：
@@ -144,7 +144,7 @@ Use this flow when the user wants a ready-made statusline.
 4. Run:
 
 ```bash
-bash "../scripts/activate_preset_statusline.sh" "<preset>" "<theme>" "<icon_style>" "<target_path>"
+bash "scripts/activate_preset_statusline.sh" "<preset>" "<theme>" "<icon_style>" "<target_path>"
 ```
 
 Default target path:
@@ -199,7 +199,7 @@ If the user wants immediate activation, then run:
 如果用户要立即启用，再运行：
 
 ```bash
-bash "../scripts/activate_custom_statusline.sh" "<custom_path>" "<theme>" "<icon_style>"
+bash "scripts/activate_custom_statusline.sh" "<custom_path>" "<theme>" "<icon_style>"
 ```
 
 If the user only asked to generate or preview, stop after generation and explain how to activate later.
@@ -213,7 +213,7 @@ Use the preset as the starting point, then adjust lines/modules/theme/icons.
 2. Present it as the starting layout.
 3. Apply the user’s module or line-count changes.
 4. Generate with `scripts/generate_custom_statusline.sh`.
-5. Activate with `../scripts/activate_custom_statusline.sh` only if the user wants the new custom script live now.
+5. Activate with `scripts/activate_custom_statusline.sh` only if the user wants the new custom script live now.
 
 ### D. Beautify or optimize / 美化或优化
 Choose the smallest useful change.
@@ -229,7 +229,7 @@ Use this decision rule:
 Run:
 
 ```bash
-bash "../scripts/uninstall_statusline.sh"
+bash "scripts/uninstall_statusline.sh"
 ```
 
 Then explain:
