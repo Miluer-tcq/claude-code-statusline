@@ -37,5 +37,6 @@ claude-code-statusline/
 │   ├── test-prompts.md
 │   └── trigger-validation.template.json
 ├── README.md
+├── README.en.md
 └── README.zh-CN.md
 ```
