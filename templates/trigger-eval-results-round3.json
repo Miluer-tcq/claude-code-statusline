@@ -1,0 +1,107 @@
+{
+  "skill_name": "cc-statusline",
+  "description": "Configure Claude Code statuslines / 状态栏. Use this skill whenever the user wants to install, set up, preview, switch, clean up, customize, restore, or fix a Claude Code statusline: choose Full / Standard / Minimal / Developer presets, fine-tune an existing preset, generate-only or activate a custom 1 / 2 / 3-line layout with modules like model / git / context / token / cost, change theme or icon style, restore the default statusline while keeping scripts, or troubleshoot a broken statusLine command on Windows, macOS, or Linux. 也适用于安装、预览、切换预设、微调、美化、恢复默认、排障、自定义。 Only for Claude Code, not shell prompts, VS Code, Windows taskbar, web status bars, or Claude Desktop.",
+  "results": [
+    {
+      "query": "Help me set up a Claude Code statusline on Windows and let me choose between the full preset and the developer preset.",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "帮我给 Claude Code 加个状态栏，先预览，再帮我安装成完整版。",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "I already have a Claude Code statusline but it feels too busy. Make it cleaner and switch the icons to minimal.",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "我想从完整版开始微调，保留 Git、Context、Token，做成 2 行 ocean 主题。",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "Build me a one-line custom Claude Code statusline with model, active, and cost only, but don't activate it yet.",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "帮我恢复默认状态栏，但不要删掉之前生成的脚本文件。",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "My Claude Code statusline install failed on macOS — can you troubleshoot why the statusLine command isn't working?",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "把我的 Claude Code 状态栏切到开发者版，再换成 developer 图标风格。",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "Generate a custom Claude Code statusline from scratch: line 1 model+modes, line 2 cwd+git+context, line 3 tokens+duration+cost.",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "我不想重装，只想把现有 Claude Code 状态栏换成 sunset 主题并先给我看预览。",
+      "should_trigger": true,
+      "triggered": false,
+      "pass": false
+    },
+    {
+      "query": "Make my zsh prompt look cleaner and show git branch.",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "帮我把 Windows 任务栏调透明。",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "Customize the VS Code status bar colors for my theme.",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "给我做一个网页顶部状态栏组件。",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "I need a terminal prompt with kubernetes context and git info.",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    },
+    {
+      "query": "帮我调 Claude Desktop 的界面主题，不是 Claude Code。",
+      "should_trigger": false,
+      "triggered": false,
+      "pass": true
+    }
+  ],
+  "summary": {
+    "total": 16,
+    "passed": 6,
+    "failed": 10
+  }
+}

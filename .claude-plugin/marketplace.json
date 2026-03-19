@@ -1,0 +1,36 @@
+{
+  "name": "miluer-statusline",
+  "owner": {
+    "name": "Miluer-tcq"
+  },
+  "metadata": {
+    "description": "Bilingual Claude Code statusline plugin with preset installation, preview-first activation, grouped custom generation, theme/icon switching, cross-platform install scripts, and manual recovery guidance.",
+    "version": "0.1.0",
+    "homepage": "https://github.com/Miluer-tcq/claude-code-statusline"
+  },
+  "plugins": [
+    {
+      "name": "cc-statusline",
+      "description": "Install, preview, customize, beautify, optimize, troubleshoot, and uninstall Claude Code statuslines in Chinese or English across Windows, macOS, and Linux.",
+      "source": "./",
+      "strict": false,
+      "version": "0.1.0",
+      "category": "customization",
+      "keywords": [
+        "statusline",
+        "claude-code",
+        "customization",
+        "theme",
+        "icons",
+        "preset",
+        "windows",
+        "macos",
+        "linux",
+        "bilingual"
+      ],
+      "skills": [
+        "./cc-statusline"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,300 @@
+{
+  "skill_name": "cc-statusline",
+  "version": "0.1.0",
+  "purpose": "Manual trigger validation for bilingual Claude Code statusline skill routing.",
+  "status": "not_run",
+  "reviewer": "",
+  "reviewed_at": "",
+  "pass_criteria": {
+    "should_trigger": "The skill should load and route to the expected workflow.",
+    "near_miss": "The skill should not load unless the user later clarifies they mean Claude Code."
+  },
+  "route_keys": [
+    "preset_install",
+    "preset_switch",
+    "custom_from_scratch",
+    "custom_from_preset",
+    "beautify_optimize",
+    "uninstall_restore",
+    "troubleshoot",
+    "no_trigger"
+  ],
+  "cases": [
+    {
+      "id": "T1",
+      "group": "should_trigger",
+      "language": "en",
+      "prompt": "Help me set up a Claude Code statusline on Windows and let me choose between the full preset and the developer preset.",
+      "expected_trigger": true,
+      "expected_route": "preset_install",
+      "expected_signals": [
+        "offers preset choice",
+        "mentions Windows-specific setup",
+        "previews before changing settings"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T2",
+      "group": "should_trigger",
+      "language": "zh",
+      "prompt": "帮我给 Claude Code 加个状态栏，先预览，再帮我安装成完整版。",
+      "expected_trigger": true,
+      "expected_route": "preset_install",
+      "expected_signals": [
+        "进入预设安装流程",
+        "先预览再写入",
+        "保持关键选项双语"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T3",
+      "group": "should_trigger",
+      "language": "en",
+      "prompt": "I already have a Claude Code statusline but it feels too busy. Make it cleaner and switch the icons to minimal.",
+      "expected_trigger": true,
+      "expected_route": "beautify_optimize",
+      "expected_signals": [
+        "recognizes existing statusline",
+        "proposes style simplification",
+        "may keep preset path if only icons or theme change"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": "Higher-risk prompt: can be interpreted as generic UI cleanup if Claude Code is not emphasized strongly enough."
+    },
+    {
+      "id": "T4",
+      "group": "should_trigger",
+      "language": "zh",
+      "prompt": "我想从完整版开始微调，保留 Git、Context、Token，做成 2 行 ocean 主题。",
+      "expected_trigger": true,
+      "expected_route": "custom_from_preset",
+      "expected_signals": [
+        "识别从预设微调",
+        "保留模块选择",
+        "最终走 custom 生成"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T5",
+      "group": "should_trigger",
+      "language": "en",
+      "prompt": "Build me a one-line custom Claude Code statusline with model, active, and cost only, but don't activate it yet.",
+      "expected_trigger": true,
+      "expected_route": "custom_from_scratch",
+      "expected_signals": [
+        "builds one-line layout",
+        "uses custom generation path",
+        "does not activate immediately"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": "Higher-risk prompt: easy to lose the generate-only requirement if routing is too install-oriented."
+    },
+    {
+      "id": "T6",
+      "group": "should_trigger",
+      "language": "zh",
+      "prompt": "帮我恢复默认状态栏，但不要删掉之前生成的脚本文件。",
+      "expected_trigger": true,
+      "expected_route": "uninstall_restore",
+      "expected_signals": [
+        "只移除 statusLine",
+        "保留脚本文件",
+        "说明快照位置"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": "Higher-risk prompt: if Claude Code is omitted in future variants, the skill may undertrigger."
+    },
+    {
+      "id": "T7",
+      "group": "should_trigger",
+      "language": "en",
+      "prompt": "My Claude Code statusline install failed on macOS — can you troubleshoot why the statusLine command isn't working?",
+      "expected_trigger": true,
+      "expected_route": "troubleshoot",
+      "expected_signals": [
+        "checks target script path",
+        "checks settings.json statusLine",
+        "checks jq or install prerequisites"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T8",
+      "group": "should_trigger",
+      "language": "zh",
+      "prompt": "把我的 Claude Code 状态栏切到开发者版，再换成 developer 图标风格。",
+      "expected_trigger": true,
+      "expected_route": "preset_switch",
+      "expected_signals": [
+        "切换到 developer preset",
+        "调整图标风格",
+        "保留双语关键选项"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T9",
+      "group": "should_trigger",
+      "language": "en",
+      "prompt": "Generate a custom Claude Code statusline from scratch: line 1 model+modes, line 2 cwd+git+context, line 3 tokens+duration+cost.",
+      "expected_trigger": true,
+      "expected_route": "custom_from_scratch",
+      "expected_signals": [
+        "maps line layout into module groups",
+        "uses custom generator arguments",
+        "previews the final layout"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "T10",
+      "group": "should_trigger",
+      "language": "zh",
+      "prompt": "我不想重装，只想把现有 Claude Code 状态栏换成 sunset 主题并先给我看预览。",
+      "expected_trigger": true,
+      "expected_route": "beautify_optimize",
+      "expected_signals": [
+        "识别为主题微调",
+        "先预览再执行",
+        "尽量走最小改动路径"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": "Higher-risk prompt: theme-only change can be mistaken for a generic config edit instead of skill usage."
+    },
+    {
+      "id": "N1",
+      "group": "near_miss",
+      "language": "en",
+      "prompt": "Make my zsh prompt look cleaner and show git branch.",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "recognized as shell prompt theming"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "N2",
+      "group": "near_miss",
+      "language": "zh",
+      "prompt": "帮我把 Windows 任务栏调透明。",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "识别为系统任务栏请求"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "N3",
+      "group": "near_miss",
+      "language": "en",
+      "prompt": "Customize the VS Code status bar colors for my theme.",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "recognized as VS Code UI customization"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "N4",
+      "group": "near_miss",
+      "language": "zh",
+      "prompt": "给我做一个网页顶部状态栏组件。",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "识别为前端组件需求"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "N5",
+      "group": "near_miss",
+      "language": "en",
+      "prompt": "I need a terminal prompt with kubernetes context and git info.",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "recognized as terminal prompt customization"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    },
+    {
+      "id": "N6",
+      "group": "near_miss",
+      "language": "zh",
+      "prompt": "帮我调 Claude Desktop 的界面主题，不是 Claude Code。",
+      "expected_trigger": false,
+      "expected_route": "no_trigger",
+      "expected_signals": [
+        "识别为非 Claude Code 场景"
+      ],
+      "actual_trigger": null,
+      "actual_route": null,
+      "actual_signals": [],
+      "pass": null,
+      "notes": ""
+    }
+  ]
+}
